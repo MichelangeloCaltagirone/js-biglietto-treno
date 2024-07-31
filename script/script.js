@@ -28,4 +28,43 @@ Preparo i dati che mi servono
 
 
 */
+//Preparazione
+const kmPrice = 0.21 
+ 
+//recupero gli elementi che voglio usare dalla pagina e la assegno a una variabile
+const resultElement = document.getElementById('result');
 
+
+// Recupero i dati (userAge, userkm), dall'utente
+
+const userAge = parseInt(prompt('inserisci la tua età', '27'));
+console.log('userAge:', userAge);
+
+const userKm = parseInt(prompt('Per quanri km hai intenzione di viaggiare?', '100'));
+console.log('userKm:', userKm)
+
+// Fase Elaborazione dati 
+
+
+
+//metodo 1. tengo separate le condizioni dato che sono solo 2 e semplici
+// prezzo senza contare etò. let così da modificarlo in seguito
+let tripPrice = kmPrice * userKm;
+console.log('tripPrice:', tripPrice);
+
+if (userAge > 64) { // over 65
+    tripPrice = tripPrice -((tripPrice / 100) * 40);
+    console.log('40-discount:', tripPrice);
+}
+if (userAge < 18) {  // minorenni
+    tripPrice = tripPrice -((tripPrice / 100) * 20);
+    console.log('20-discount', tripPrice);
+}
+
+// Metodo 2 Unisco le condizioni per usare una const
+/*
+num.toFixed([digits]) 
+*/
+
+
+resultElement.innerText = `ecco il prezzo del tuo biglietto: ${tripPrice.toFixed(2)} euro.`;
