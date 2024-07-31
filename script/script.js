@@ -12,6 +12,11 @@ const kmPrice = 0.21;
 
 //recupero gli elementi che voglio usare dalla pagina e li assegno a una variabile
 const resultElement = document.getElementById('result');
+const age = document.getElementById('age');
+const km = document.getElementById('km');
+const discount20x = document.getElementById('discount20x');
+const discount40x = document.getElementById('discount40x');
+const priceOnTicket = document.getElementById('priceOnTicket');
 
 
 // Recupero i dati (userAge, userKm), dall'utente
@@ -61,12 +66,17 @@ if (userAge > 17 && userAge < 65 ) {
     tripPrice = startPrice
 } else if (userAge > 64) {
     tripPrice = startPrice - ((startPrice / 100) * 40);
+    discount40x.innerHTML = `Dato che sei Over-65, hai diritto al <strong>40%</strong> di sconto! Il prezzo originale era: <span id='startPrice'>${startPrice.toFixed(2)}</span> euro`;
     console.log('40-discount:', tripPrice);
 } else {
     tripPrice = startPrice - ((startPrice / 100) * 20);
+    discount20x.innerHTML = `Dato che sei minorenne hai diritto al <strong>20%</strong> di sconto! Il prezzo originale era: <span id='startPrice'>${startPrice.toFixed(2)}</span> euro`;
     console.log('20-discount', tripPrice);
 }
 
 // Fase di produzione output
-resultElement.innerText = `ecco il prezzo del tuo biglietto: ${tripPrice.toFixed(2)} euro.`;
-console.log(tripPrice, typeof(tripPrice));
+resultElement.innerText = tripPrice.toFixed(2);
+
+priceOnTicket.innerText = tripPrice.toFixed(2) + '€';
+age.innerText = userAge;
+km.innerText = userKm;

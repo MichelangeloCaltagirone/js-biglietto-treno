@@ -1,0 +1,56 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Element on the img, completing the blank ticket */
+.ticket {
+    margin: 0 auto;
+    width: 650px;
+    position: relative;
+    img {
+        width: 100%;
+    }
+}
+#priceOnTicket {
+    position: absolute;
+    bottom: 34%;
+    right: 22%;
+    color:mediumblue;
+}
+
+
+/* Show-of of the info */
+ul {
+    padding: 1rem 0;
+    list-style-type: none;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    background-color: black;
+    li {
+        margin-bottom: 1rem;
+    }
+}
+
+
+/* Style for the individual ID */
+#result, #age, #km, #startPrice {
+    font-size: 20px;
+}
+#result {
+    color: lightgreen;
+}
+#age {
+    color: purple;
+}
+#km {
+    color: blue;
+}
+#startPrice {
+    text-decoration: line-through;
+    color: red;
+}
